@@ -49,23 +49,23 @@ const NavBar = () => {
       setNotification(false);
     }
   }
-  const openProfile = ()=>{
-    if(!profile){
+  const openProfile = () => {
+    if (!profile) {
       setProfile(true);
-      setHelp(true);
-      setDiscover(true);
-      setNotification(true);
-    }else{
+      setHelp(false);
+      setDiscover(false);
+      setNotification(false);
+    } else {
       setProfile(false);
     }
   }
- const openSideBar=()=>{
-  if(!openSideMenu){
-    setOpenSideMenu(true);
-  }else{
-    setOpenSideMenu(false);
+  const openSideBar = () => {
+    if (!openSideMenu) {
+      setOpenSideMenu(true);
+    } else {
+      setOpenSideMenu(false);
+    }
   }
- }
   return (
     <div className={Style.navbar}>
       <div className={Style.navbar_container}>
@@ -119,40 +119,40 @@ const NavBar = () => {
             <Button btnText="Create" />
           </div>
 
-{/* user profile */}
-<div className={Style.navbar_container_right_profile_box}>
-  <div className={Style.navbar_container_right_profile}>
-    <Image
-     src={images.user1}
-      alt='Profile' 
-      width={40}
-       height={40} 
-    onClick={()=>openProfile()}
-    className={Style.navbar_container_right_profile}
-    />
+          {/* user profile */}
+          <div className={Style.navbar_container_right_profile_box}>
+            <div className={Style.navbar_container_right_profile}>
+              <Image
+                src={images.user1}
+                alt='Profile'
+                width={40}
+                height={40}
+                onClick={() => openProfile()}
+                className={Style.navbar_container_right_profile}
+              />
 
-{profile && <Profile/>}
+              {profile && <Profile />}
 
-  </div>
-</div>
-{/* MENU BUTTON */}
-<div className={Style.navbar_container_right_menuBtn}>
-  <CgMenuRight className={Style.menuIcons}
-  onclick={()=>openSideBar}
-  />
-</div>
+            </div>
+          </div>
+          {/* MENU BUTTON */}
+          <div className={Style.navbar_container_right_menuBtn}>
+            <CgMenuRight className={Style.menuIcons}
+              onClick={() => openSideBar()}
+            />
+          </div>
 
         </div>
       </div>
 
-    {/* SIDEBAR COMPONENTS */}
-    {
-      openSideMenu&&(
-        <div className={Style.SideBar}>
-          <SideBar setOpenSideMenu={setOpenSideMenu}/>
-        </div>
-      )
-    }
+      {/* SIDEBAR COMPONENTS */}
+      {
+        openSideMenu && (
+          <div className={Style.SideBar}>
+            <SideBar setOpenSideMenu={setOpenSideMenu} />
+          </div>
+        )
+      }
     </div>
   )
 }
