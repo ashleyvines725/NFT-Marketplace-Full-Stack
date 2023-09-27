@@ -1,8 +1,14 @@
 import React from 'react'
+//internal import
+import Style from './Button.module.css';
 
-function Button() {
+function Button({btnName , handleClick}) {
   return (
-    <div>Button</div>
+    <div className={Style.box}>
+      <button className={Style.button} onCanPlay={()=>handleClick()} >
+        {btnName}
+      </button>
+    </div>
   )
 }
 
